@@ -10,6 +10,7 @@ module.exports = function (callback) {
 
                 if (item instanceof Error) {
                     var error = {
+                        is_error: true,
                         message: item.message,
                         code: item.code,
                         stack: item.stack
