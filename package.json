@@ -1,26 +1,23 @@
 {
-  "name": "log4js-json",
-  "version": "0.1.0",
-  "description": "log4js json appender",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/alekzonder/log4js-json.git"
-  },
-  "keywords": [
-    "log4js",
-    "json"
-  ],
-  "author": "alekzonder <alekzonder@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/alekzonder/log4js-json/issues"
-  },
-  "homepage": "https://github.com/alekzonder/log4js-json#readme",
-  "devDependencies": {
-    "log4js": "^0.6.27"
-  }
+    "name": "log4js-json",
+    "version": "0.1.1",
+    "description": "log4js json appender",
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/alekzonder/log4js-json.git"
+    },
+    "keywords": [
+        "log4js",
+        "json"
+    ],
+    "author": "alekzonder <alekzonder@gmail.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/alekzonder/log4js-json/issues"
+    },
+    "homepage": "https://github.com/alekzonder/log4js-json#readme",
+    "devDependencies": {
+        "log4js": "^0.6.27"
+    }
 }

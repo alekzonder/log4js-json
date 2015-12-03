@@ -1,7 +1,5 @@
 # log4js-json
 
-## not published in npm yet
-
 json appender
 
 ## install
@@ -14,15 +12,37 @@ npm i log4js-json
 ## Usage
 
 ```js
-var log4js = require('log4js');
 
+var log4js = require('log4js');
+var appender = require('log4js-json');
+
+// log serialized json into console
+log4js.loadAppender('json', appender());
+log4js.addAppender(log4js.appenders.json());
+
+var logger = log4js.getLogger();
+
+logger.info('test ...');
+
+// OR pass callback
+
+log4js.loadAppender('json', appender(function (event) {
+    // got event object, write to file or send to log system
+    console.log(event);
+}));
+
+log4js.addAppender(log4js.appenders.json());
+
+
+// OR
+
+var log4js = require('log4js');
 log4js.loadAppender('log4js-json');
 log4js.addAppender(log4js.appenders['log4js-json'](), 'json');
 
 var logger = log4js.getLogger('json');
 
 logger.info('test info message');
-
 ```
 
 ## output

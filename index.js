@@ -1,40 +1,48 @@
-function jsonAppender(timezoneOffset) {
+module.exports = function (callback) {
 
-    return function(loggingEvent) {
+    function jsonAppender(timezoneOffset) {
 
-        var eventData = [];
+        return function(loggingEvent) {
 
-        loggingEvent.data.forEach(function(item) {
+            var eventData = [];
 
-            if (item instanceof Error) {
-                var error = {
-                    message: item.message,
-                    code: item.code,
-                    stack: item.stack
-                };
+            loggingEvent.data.forEach(function(item) {
 
-                eventData.push(error);
+                if (item instanceof Error) {
+                    var error = {
+                        message: item.message,
+                        code: item.code,
+                        stack: item.stack
+                    };
+
+                    eventData.push(error);
+                } else {
+                    eventData.push(item);
+                }
+
+            });
+
+            var event = {
+                time: loggingEvent.startTime.getTime(),
+                level: loggingEvent.level.levelStr,
+                data: eventData
+            };
+
+            if (!callback) {
+                var json = JSON.stringify(event);
+                console.log(json);
             } else {
-                eventData.push(item);
+                callback(event);
             }
-
-        });
-
-        var event = {
-            time: loggingEvent.startTime.getTime(),
-            level: loggingEvent.level.levelStr,
-            data: eventData
         };
+    }
 
-        var json = JSON.stringify(event);
+    function configure(config) {
+        return jsonAppender(config.timezoneOffset);
+    }
 
-        console.log(json);
+    return {
+        appender: jsonAppender,
+        configure: configure
     };
-}
-
-function configure(config) {
-    return jsonAppender(config.timezoneOffset);
-}
-
-exports.appender = jsonAppender;
-exports.configure = configure;
+};
