@@ -25,6 +25,7 @@ module.exports = function (callback) {
 
             var event = {
                 time: loggingEvent.startTime.getTime(),
+                level_int: loggingEvent.level.level,
                 level: loggingEvent.level.levelStr,
                 data: eventData
             };

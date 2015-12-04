@@ -48,36 +48,47 @@ logger.info('test info message');
 ## output
 
 ```
-{"time":1446700684393,"level":"TRACE","data":["trace test"]}
-[2015-11-05 11:18:04.393] [TRACE] json - trace test
+[2015-12-04 17:54:57.106] [TRACE] [default] - trace
+{ time: 1449230097106, level_int: 5000, level: 'TRACE', data: [ 'trace' ] }
 
-{"time":1446700684399,"level":"DEBUG","data":["debug test"]}
-[2015-11-05 11:18:04.399] [DEBUG] json - debug test
 
-{"time":1446700684399,"level":"INFO","data":["info test"]}
-[2015-11-05 11:18:04.399] [INFO] json - info test
 
-{"time":1446700684400,"level":"WARN","data":["warn test"]}
-[2015-11-05 11:18:04.400] [WARN] json - warn test
+[2015-12-04 17:54:57.115] [DEBUG] [default] - debug
+{ time: 1449230097115, level_int: 10000, level: 'DEBUG', data: [ 'debug' ] }
 
-{"time":1446700684400,"level":"ERROR","data":[{"message":"test error","stack":"Error: test error\n    at Object.<anonymous> (/Users/alexv/github/log4js-json/test.js:14:14)\n    at Module._compile (module.js:434:26)\n    at Object.Module._extensions..js (module.js:452:10)\n    at Module.load (module.js:355:32)\n    at Function.Module._load (module.js:310:12)\n    at Function.Module.runMain (module.js:475:10)\n    at startup (node.js:117:18)\n    at node.js:951:3"}]}
-[2015-11-05 11:18:04.400] [ERROR] json - [Error: test error]
-Error: test error
-    at Object.<anonymous> (/Users/alexv/github/log4js-json/test.js:14:14)
-    at Module._compile (module.js:434:26)
-    at Object.Module._extensions..js (module.js:452:10)
-    at Module.load (module.js:355:32)
-    at Function.Module._load (module.js:310:12)
-    at Function.Module.runMain (module.js:475:10)
-    at startup (node.js:117:18)
-    at node.js:951:3
 
-{"time":1446700684403,"level":"ERROR","data":["test error"]}
-[2015-11-05 11:18:04.403] [ERROR] json - test error
+[2015-12-04 17:54:57.116] [INFO] [default] - info
+{ time: 1449230097116, level_int: 20000, level: 'INFO', data: [ 'info' ] }
 
-{"time":1446700684403,"level":"FATAL","data":["fatal test"]}
-[2015-11-05 11:18:04.403] [FATAL] json - fatal test
 
-{"time":1446700684403,"level":"MARK","data":["mark test"]}
-[2015-11-05 11:18:04.403] [MARK] json - mark test
+[2015-12-04 17:54:57.116] [WARN] [default] - warn
+{ time: 1449230097116, level_int: 30000, level: 'WARN', data: [ 'warn' ] }
+
+
+[2015-12-04 17:54:57.117] [ERROR] [default] - { [Error: test] code: 'fatal' }
+Error: test
+    at Object.<anonymous> (/Users/alexv/github/log4js-json/test.js:21:13)
+    at Module._compile (module.js:435:26)
+    at Object.Module._extensions..js (module.js:442:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:311:12)
+    at Function.Module.runMain (module.js:467:10)
+    at startup (node.js:136:18)
+    at node.js:963:3
+
+{ time: 1449230097117, level_int: 40000, level: 'ERROR',
+  data:
+   [ { is_error: true,
+       message: 'test',
+       code: 'fatal',
+       stack: 'Error: test\n    at Object.<anonymous> (/Users/alexv/github/log4js-json/test.js:21:13)\n    at Module._compile (module.js:435:26)\n    at Object.Module._extensions..js (module.js:442:10)\n    at Module.load (module.js:356:32)\n    at Function.Module._load (module.js:311:12)\n    at Function.Module.runMain (module.js:467:10)\n    at startup (node.js:136:18)\n    at node.js:963:3' } ] }
+
+
+[2015-12-04 17:54:57.119] [FATAL] [default] - fatal
+{ time: 1449230097119, level_int: 50000, level: 'FATAL', data: [ 'fatal' ] }
+
+
+[2015-12-04 17:54:57.120] [MARK] [default] - mark
+{ time: 1449230097120, level_int: 9007199254740992, level: 'MARK', data: [ 'mark' ] }
+
 ```
